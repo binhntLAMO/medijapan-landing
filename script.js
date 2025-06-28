@@ -462,19 +462,167 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchBtn = document.querySelector('.search-btn');
     
     if (searchInput && searchBtn) {
-        // Search data - các từ khóa tìm kiếm
+        // Search data - các từ khóa tìm kiếm và bệnh viện chuyên môn
         const searchData = {
-            'ung thư': ['#treatments', 'Điều trị ung thư', 'Phương pháp điều trị'],
-            'bệnh viện': ['#hospitals', 'Bệnh viện đối tác', 'Bệnh viện Đại học Tokyo'],
-            'dịch vụ': ['#services', 'Dịch vụ toàn diện', 'Tư vấn y tế'],
-            'nhật bản': ['#about', 'Về MediJapan', 'Công nghệ y tế Nhật Bản'],
-            'tư vấn': ['#contact', 'Liên hệ tư vấn', 'Tư vấn miễn phí'],
-            'visa': ['#services', 'Hỗ trợ visa', 'Visa y tế'],
-            'xạ trị': ['#treatments', 'Xạ trị tiên tiến', 'IMRT'],
-            'miễn dịch': ['#treatments', 'Liệu pháp miễn dịch', 'Checkpoint inhibitors'],
-            'phẫu thuật': ['#treatments', 'Phẫu thuật robot', 'da Vinci'],
-            'tokyo': ['#hospitals', 'Bệnh viện Đại học Tokyo', 'Tokyo, Nhật Bản'],
-            'kyoto': ['#hospitals', 'Bệnh viện Đại học Kyoto', 'Kyoto, Nhật Bản']
+            // Tế bào gốc
+            'tế bào gốc': [
+                '#treatments', 
+                'Liệu pháp Tế bào gốc', 
+                'Bệnh viện Đại học Tokyo - Chuyên tế bào gốc',
+                'Viện Nghiên cứu Tế bào gốc Kobe - Chuyên tế bào gốc',
+                'Bệnh viện Đại học Kyoto - Chuyên tế bào gốc'
+            ],
+            'stem cell': [
+                '#treatments', 
+                'Liệu pháp Tế bào gốc', 
+                'Bệnh viện Đại học Tokyo - Chuyên tế bào gốc',
+                'Viện Nghiên cứu Tế bào gốc Kobe - Chuyên tế bào gốc'
+            ],
+            
+            // Làm đẹp
+            'làm đẹp': [
+                '#treatments', 
+                'Thẩm mỹ & Làm đẹp', 
+                'Trung tâm Y tế Thẩm mỹ Osaka - Chuyên làm đẹp',
+                'Bệnh viện Đại học Tokyo - Chuyên thẩm mỹ'
+            ],
+            'thẩm mỹ': [
+                '#treatments', 
+                'Thẩm mỹ & Làm đẹp', 
+                'Trung tâm Y tế Thẩm mỹ Osaka - Chuyên thẩm mỹ',
+                'Trẻ hóa da bằng tế bào gốc'
+            ],
+            'trẻ hóa': [
+                '#treatments', 
+                'Thẩm mỹ & Làm đẹp', 
+                'Trung tâm Y tế Thẩm mỹ Osaka - Chuyên trẻ hóa',
+                'Trẻ hóa da bằng tế bào gốc'
+            ],
+            
+            // Ung thư
+            'ung thư': [
+                '#treatments', 
+                'Điều trị ung thư', 
+                'Bệnh viện Đại học Tokyo - Chuyên ung thư',
+                'Bệnh viện Đại học Kyoto - Chuyên ung thư'
+            ],
+            'cancer': [
+                '#treatments', 
+                'Điều trị ung thư', 
+                'Bệnh viện Đại học Tokyo - Chuyên ung thư'
+            ],
+            
+            // Các loại ung thư cụ thể
+            'ung thư phổi': [
+                '#treatments', 
+                'Điều trị ung thư phổi', 
+                'Bệnh viện Đại học Tokyo - Chuyên ung thư phổi',
+                'Xạ trị Tiên tiến'
+            ],
+            'ung thư gan': [
+                '#treatments', 
+                'Điều trị ung thư gan', 
+                'Bệnh viện Đại học Tokyo - Chuyên ung thư gan',
+                'Liệu pháp Miễn dịch'
+            ],
+            'ung thư dạ dày': [
+                '#treatments', 
+                'Điều trị ung thư dạ dày', 
+                'Bệnh viện Đại học Kyoto - Chuyên ung thư dạ dày',
+                'Y học tái tạo'
+            ],
+            'ung thư vú': [
+                '#treatments', 
+                'Điều trị ung thư vú', 
+                'Bệnh viện Đại học Tokyo - Chuyên ung thư vú',
+                'Liệu pháp Miễn dịch'
+            ],
+            
+            // Bệnh viện
+            'bệnh viện': [
+                '#hospitals', 
+                'Bệnh viện đối tác', 
+                'Bệnh viện Đại học Tokyo',
+                'Trung tâm Y tế Thẩm mỹ Osaka',
+                'Bệnh viện Đại học Kyoto',
+                'Viện Nghiên cứu Tế bào gốc Kobe'
+            ],
+            'tokyo': [
+                '#hospitals', 
+                'Bệnh viện Đại học Tokyo', 
+                'Tokyo, Nhật Bản - Chuyên tế bào gốc và ung thư'
+            ],
+            'osaka': [
+                '#hospitals', 
+                'Trung tâm Y tế Thẩm mỹ Osaka', 
+                'Osaka, Nhật Bản - Chuyên thẩm mỹ và làm đẹp'
+            ],
+            'kyoto': [
+                '#hospitals', 
+                'Bệnh viện Đại học Kyoto', 
+                'Kyoto, Nhật Bản - Chuyên tế bào gốc và ung thư'
+            ],
+            'kobe': [
+                '#hospitals', 
+                'Viện Nghiên cứu Tế bào gốc Kobe', 
+                'Kobe, Nhật Bản - Chuyên nghiên cứu tế bào gốc'
+            ],
+            
+            // Dịch vụ
+            'dịch vụ': [
+                '#services', 
+                'Dịch vụ toàn diện', 
+                'Tư vấn y tế',
+                'Hỗ trợ visa',
+                'Phiên dịch y tế'
+            ],
+            'tư vấn': [
+                '#contact', 
+                'Liên hệ tư vấn', 
+                'Tư vấn miễn phí',
+                'Tư vấn y tế chuyên sâu'
+            ],
+            'visa': [
+                '#services', 
+                'Hỗ trợ visa', 
+                'Visa y tế',
+                'Hỗ trợ Visa & Du lịch'
+            ],
+            
+            // Phương pháp điều trị
+            'xạ trị': [
+                '#treatments', 
+                'Xạ trị Tiên tiến', 
+                'IMRT',
+                'SBRT',
+                'Xạ trị proton'
+            ],
+            'miễn dịch': [
+                '#treatments', 
+                'Liệu pháp Miễn dịch', 
+                'Checkpoint inhibitors',
+                'CAR-T cell therapy',
+                'Vaccine ung thư'
+            ],
+            'phẫu thuật': [
+                '#treatments', 
+                'Phẫu thuật robot', 
+                'da Vinci',
+                'Phẫu thuật ít xâm lấn'
+            ],
+            
+            // Nhật Bản
+            'nhật bản': [
+                '#about', 
+                'Về MediJapan', 
+                'Công nghệ y tế Nhật Bản',
+                'Hệ thống y tế Nhật Bản'
+            ],
+            'japan': [
+                '#about', 
+                'Về MediJapan', 
+                'Công nghệ y tế Nhật Bản'
+            ]
         };
         
         // Search function
@@ -544,23 +692,86 @@ function showSearchResults(results, query) {
         existingResults.remove();
     }
     
+    // Loại bỏ kết quả trùng lặp
+    const uniqueResults = [...new Set(results)];
+    
+    // Phân loại kết quả
+    const hospitals = uniqueResults.filter(result => result.includes('Bệnh viện') || result.includes('Trung tâm') || result.includes('Viện'));
+    const treatments = uniqueResults.filter(result => result.includes('Điều trị') || result.includes('Liệu pháp') || result.includes('Xạ trị') || result.includes('Thẩm mỹ'));
+    const sections = uniqueResults.filter(result => result.startsWith('#'));
+    const others = uniqueResults.filter(result => !result.includes('Bệnh viện') && !result.includes('Trung tâm') && !result.includes('Viện') && !result.includes('Điều trị') && !result.includes('Liệu pháp') && !result.includes('Xạ trị') && !result.includes('Thẩm mỹ') && !result.startsWith('#'));
+    
+    // Tạo HTML cho kết quả
+    let resultsHTML = '';
+    
+    if (hospitals.length > 0) {
+        resultsHTML += `
+            <div class="search-category">
+                <h5><i class="fas fa-hospital"></i> Bệnh viện chuyên môn</h5>
+                ${hospitals.slice(0, 3).map(result => `
+                    <div class="search-result-item" onclick="handleSearchResult('${result}')">
+                        <i class="fas fa-search"></i>
+                        <span>${result}</span>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+    
+    if (treatments.length > 0) {
+        resultsHTML += `
+            <div class="search-category">
+                <h5><i class="fas fa-stethoscope"></i> Phương pháp điều trị</h5>
+                ${treatments.slice(0, 3).map(result => `
+                    <div class="search-result-item" onclick="handleSearchResult('${result}')">
+                        <i class="fas fa-search"></i>
+                        <span>${result}</span>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+    
+    if (sections.length > 0) {
+        resultsHTML += `
+            <div class="search-category">
+                <h5><i class="fas fa-sitemap"></i> Danh mục</h5>
+                ${sections.slice(0, 2).map(result => `
+                    <div class="search-result-item" onclick="handleSearchResult('${result}')">
+                        <i class="fas fa-search"></i>
+                        <span>${result === '#treatments' ? 'Phương pháp điều trị' : result === '#hospitals' ? 'Bệnh viện đối tác' : result === '#services' ? 'Dịch vụ' : result === '#contact' ? 'Liên hệ' : result === '#about' ? 'Về chúng tôi' : result}</span>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+    
+    if (others.length > 0) {
+        resultsHTML += `
+            <div class="search-category">
+                <h5><i class="fas fa-info-circle"></i> Thông tin khác</h5>
+                ${others.slice(0, 2).map(result => `
+                    <div class="search-result-item" onclick="handleSearchResult('${result}')">
+                        <i class="fas fa-search"></i>
+                        <span>${result}</span>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+    
     // Create search results container
     const searchResults = document.createElement('div');
     searchResults.className = 'search-results';
     searchResults.innerHTML = `
         <div class="search-results-header">
-            <h4>Kết quả tìm kiếm cho "${query}"</h4>
+            <h4>Kết quả tìm kiếm cho "${query}" (${uniqueResults.length} kết quả)</h4>
             <button class="search-results-close" onclick="this.parentElement.parentElement.remove()">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         <div class="search-results-content">
-            ${results.slice(0, 5).map(result => `
-                <div class="search-result-item" onclick="handleSearchResult('${result}')">
-                    <i class="fas fa-search"></i>
-                    <span>${result}</span>
-                </div>
-            `).join('')}
+            ${resultsHTML}
         </div>
     `;
     
@@ -576,7 +787,7 @@ function showSearchResults(results, query) {
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         z-index: 1000;
         margin-top: 0.5rem;
-        max-height: 300px;
+        max-height: 400px;
         overflow-y: auto;
     `;
     
@@ -585,12 +796,12 @@ function showSearchResults(results, query) {
     searchContainer.style.position = 'relative';
     searchContainer.appendChild(searchResults);
     
-    // Auto remove after 10 seconds
+    // Auto remove after 15 seconds
     setTimeout(() => {
         if (searchResults.parentElement) {
             searchResults.remove();
         }
-    }, 10000);
+    }, 15000);
 }
 
 // Handle search result click
@@ -652,6 +863,28 @@ searchResultsStyles.textContent = `
         padding: 0.5rem 0;
     }
     
+    .search-category {
+        margin-bottom: 1rem;
+    }
+    
+    .search-category:last-child {
+        margin-bottom: 0;
+    }
+    
+    .search-category h5 {
+        margin: 0 0 0.5rem 1rem;
+        color: #6b7280;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .search-category h5 i {
+        margin-right: 0.5rem;
+        color: #2563eb;
+    }
+    
     .search-result-item {
         display: flex;
         align-items: center;
@@ -659,10 +892,12 @@ searchResultsStyles.textContent = `
         padding: 0.75rem 1rem;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        border-left: 3px solid transparent;
     }
     
     .search-result-item:hover {
         background-color: #f3f4f6;
+        border-left-color: #2563eb;
     }
     
     .search-result-item i {
@@ -673,6 +908,11 @@ searchResultsStyles.textContent = `
     .search-result-item span {
         color: #374151;
         font-size: 0.9rem;
+        flex: 1;
+    }
+    
+    .search-result-item:hover span {
+        color: #2563eb;
     }
 `;
 document.head.appendChild(searchResultsStyles); 
