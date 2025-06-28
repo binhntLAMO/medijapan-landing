@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediJapan - Dịch vụ Y tế Nhật Bản | Điều trị Ung thư</title>
+    <meta name="description" content="Dịch vụ đưa bệnh nhân Việt Nam sang Nhật Bản điều trị ung thư với công nghệ y tế tiên tiến nhất. Liên kết với các bệnh viện hàng đầu Nhật Bản.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>MediJapan</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Trang chủ</a></li>
+                    <li><a href="#services">Dịch vụ</a></li>
+                    <li><a href="#hospitals">Bệnh viện</a></li>
+                    <li><a href="#treatments">Điều trị</a></li>
+                    <li><a href="#about">Về chúng tôi</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1920&q=80" alt="Bệnh viện Nhật Bản hiện đại" class="hero-bg-image">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Điều trị Ung thư tại Nhật Bản
+                    <span class="highlight">Công nghệ Y tế Tiên tiến</span>
+                </h1>
+                <p class="hero-description">
+                    Chúng tôi cung cấp dịch vụ toàn diện đưa bệnh nhân Việt Nam sang Nhật Bản điều trị ung thư 
+                    với công nghệ y tế hiện đại nhất, đội ngũ bác sĩ chuyên môn cao và chăm sóc tận tâm.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('contact')">
+                        <i class="fas fa-phone"></i>
+                        Tư vấn miễn phí
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('treatments')">
+                        <i class="fas fa-info-circle"></i>
+                        Tìm hiểu thêm
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>98%</h3>
+                        <p>Tỷ lệ thành công</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>15+</h3>
+                        <p>Bệnh viện đối tác</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>500+</h3>
+                        <p>Bệnh nhân đã điều trị</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Dịch vụ Toàn diện</h2>
+                <p>Chúng tôi cung cấp dịch vụ trọn gói từ tư vấn đến hậu điều trị</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=400&q=80" alt="Tư vấn Y tế">
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Tư vấn Y tế</h3>
+                    <p>Tư vấn chuyên sâu với bác sĩ chuyên khoa ung thư Nhật Bản, đánh giá tình trạng bệnh và đề xuất phương pháp điều trị phù hợp.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=400&q=80" alt="Hỗ trợ Visa & Du lịch">
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Hỗ trợ Visa & Du lịch</h3>
+                    <p>Hỗ trợ làm visa y tế, đặt vé máy bay, sắp xếp nơi ở và phương tiện di chuyển tại Nhật Bản.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=400&q=80" alt="Đặt lịch Khám">
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3>Đặt lịch Khám</h3>
+                    <p>Đặt lịch khám và điều trị tại các bệnh viện hàng đầu Nhật Bản, không cần chờ đợi.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://hrchannels.com/uptalent/attachments/images/20220616/090128693_bien-dich-va-phien-dich.jpg?auto=format&fit=crop&w=400&q=80" alt="Phiên dịch Y tế">
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Phiên dịch Y tế</h3>
+                    <p>Dịch vụ phiên dịch chuyên nghiệp trong suốt quá trình khám và điều trị tại Nhật Bản.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&q=80" alt="Chăm sóc Hậu điều trị">
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Chăm sóc Hậu điều trị</h3>
+                    <p>Theo dõi sức khỏe sau điều trị, tư vấn chế độ dinh dưỡng và lối sống phù hợp.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://cgvtelecom.vn/wp-content/uploads/2023/03/ho-tro-khach-hang.jpg?auto=format&fit=crop&w=400&q=80" alt="Hỗ trợ 24/7">
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Hỗ trợ 24/7</h3>
+                    <p>Đội ngũ hỗ trợ Việt Nam - Nhật Bản hoạt động 24/7, sẵn sàng hỗ trợ mọi lúc.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hospitals Section -->
+    <section id="hospitals" class="hospitals">
+        <div class="container">
+            <div class="section-header">
+                <h2>Bệnh viện Đối tác</h2>
+                <p>Liên kết với các bệnh viện hàng đầu Nhật Bản chuyên điều trị ung thư</p>
+            </div>
+            <div class="hospitals-grid">
+                <div class="hospital-card">
+                    <div class="hospital-image">
+                        <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=600&q=80" alt="Bệnh viện Đại học Tokyo">
+                    </div>
+                    <h3>Bệnh viện Đại học Tokyo</h3>
+                    <p class="hospital-location"><i class="fas fa-map-marker-alt"></i> Tokyo, Nhật Bản</p>
+                    <p>Bệnh viện đại học hàng đầu với công nghệ điều trị ung thư tiên tiến nhất, đội ngũ bác sĩ chuyên môn cao.</p>
+                    <div class="hospital-specialties">
+                        <span>Ung thư phổi</span>
+                        <span>Ung thư gan</span>
+                        <span>Ung thư vú</span>
+                    </div>
+                </div>
+                <div class="hospital-card">
+                    <div class="hospital-image">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=600&q=80" alt="Trung tâm Ung thư Quốc gia">
+                    </div>
+                    <h3>Trung tâm Ung thư Quốc gia</h3>
+                    <p class="hospital-location"><i class="fas fa-map-marker-alt"></i> Tokyo, Nhật Bản</p>
+                    <p>Trung tâm chuyên biệt về nghiên cứu và điều trị ung thư với các phương pháp mới nhất.</p>
+                    <div class="hospital-specialties">
+                        <span>Liệu pháp miễn dịch</span>
+                        <span>Xạ trị tiên tiến</span>
+                        <span>Phẫu thuật robot</span>
+                    </div>
+                </div>
+                <div class="hospital-card">
+                    <div class="hospital-image">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=600&q=80" alt="Bệnh viện Đại học Kyoto">
+                    </div>
+                    <h3>Bệnh viện Đại học Kyoto</h3>
+                    <p class="hospital-location"><i class="fas fa-map-marker-alt"></i> Kyoto, Nhật Bản</p>
+                    <p>Bệnh viện nổi tiếng với các phương pháp điều trị ung thư kết hợp y học cổ truyền và hiện đại.</p>
+                    <div class="hospital-specialties">
+                        <span>Ung thư dạ dày</span>
+                        <span>Ung thư đại tràng</span>
+                        <span>Y học tái tạo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatments Section -->
+    <section id="treatments" class="treatments">
+        <div class="container">
+            <div class="section-header">
+                <h2>Phương pháp Điều trị</h2>
+                <p>Công nghệ y tế tiên tiến nhất trong điều trị ung thư</p>
+            </div>
+            <div class="treatments-content">
+                <div class="treatment-item">
+                    <div class="treatment-image">
+                        <img src="https://genk.mediacdn.vn/2017/radiotherapy-and-nanoparticles-against-glioblastoma-1496106093870.jpg?auto=format&fit=crop&w=400&q=80" alt="Xạ trị Tiên tiến">
+                    </div>
+                    <div class="treatment-info">
+                        <h3>Xạ trị Tiên tiến</h3>
+                        <p>Phương pháp xạ trị chính xác cao với công nghệ IMRT, SBRT giúp tiêu diệt tế bào ung thư mà không ảnh hưởng đến mô lành.</p>
+                        <ul>
+                            <li>Xạ trị điều biến liều (IMRT)</li>
+                            <li>Xạ trị định vị thân (SBRT)</li>
+                            <li>Xạ trị proton</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="treatment-item">
+                    <div class="treatment-image">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=400&q=80" alt="Liệu pháp Miễn dịch">
+                    </div>
+                    <div class="treatment-info">
+                        <h3>Liệu pháp Miễn dịch</h3>
+                        <p>Kích hoạt hệ miễn dịch tự nhiên của cơ thể để chống lại tế bào ung thư, phương pháp điều trị mới nhất và hiệu quả.</p>
+                        <ul>
+                            <li>Checkpoint inhibitors</li>
+                            <li>CAR-T cell therapy</li>
+                            <li>Vaccine ung thư</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="treatment-item">
+                    <div class="treatment-image">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=400&q=80" alt="Phẫu thuật Robot">
+                    </div>
+                    <div class="treatment-info">
+                        <h3>Phẫu thuật Robot</h3>
+                        <p>Phẫu thuật với robot da Vinci cho độ chính xác cao, ít xâm lấn, giảm đau và thời gian hồi phục nhanh.</p>
+                        <ul>
+                            <li>Phẫu thuật ít xâm lấn</li>
+                            <li>Độ chính xác cao</li>
+                            <li>Hồi phục nhanh</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="treatment-item">
+                    <div class="treatment-image">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&q=80" alt="Liệu pháp Nhắm đích">
+                    </div>
+                    <div class="treatment-info">
+                        <h3>Liệu pháp Nhắm đích</h3>
+                        <p>Điều trị dựa trên đặc điểm di truyền của khối u, sử dụng thuốc nhắm đích để tiêu diệt tế bào ung thư.</p>
+                        <ul>
+                            <li>Phân tích gen</li>
+                            <li>Thuốc nhắm đích</li>
+                            <li>Điều trị cá thể hóa</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Về MediJapan</h2>
+                    <p>MediJapan là công ty tiên phong trong lĩnh vực kết nối bệnh nhân Việt Nam với hệ thống y tế Nhật Bản. Với hơn 10 năm kinh nghiệm, chúng tôi đã giúp hàng trăm bệnh nhân Việt Nam tiếp cận với công nghệ y tế tiên tiến nhất thế giới.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Đội ngũ chuyên gia y tế Việt - Nhật</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Liên kết với 15+ bệnh viện hàng đầu</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Dịch vụ trọn gói từ A-Z</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Hỗ trợ 24/7 trong suốt quá trình</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=600&q=80" alt="Đội ngũ MediJapan">
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <h3>10+</h3>
+                        <p>Năm kinh nghiệm</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>500+</h3>
+                        <p>Bệnh nhân đã điều trị</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>98%</h3>
+                        <p>Tỷ lệ hài lòng</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>15+</h3>
+                        <p>Bệnh viện đối tác</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Liên hệ Tư vấn</h2>
+                <p>Để được tư vấn miễn phí và hỗ trợ chi tiết</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Hotline</h4>
+                            <p>+84 90 123 4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@medijapan.vn</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Văn phòng Hà Nội</h4>
+                            <p>123 Nguyễn Huệ, Hoàn Kiếm, Hà Nội</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Giờ làm việc</h4>
+                            <p>Thứ 2 - Thứ 7: 8:00 - 18:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Họ và tên" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Số điện thoại" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <select id="service" name="service" required>
+                                <option value="">Chọn dịch vụ quan tâm</option>
+                                <option value="consultation">Tư vấn y tế</option>
+                                <option value="treatment">Điều trị ung thư</option>
+                                <option value="visa">Hỗ trợ visa</option>
+                                <option value="other">Khác</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Mô tả tình trạng bệnh hoặc yêu cầu tư vấn" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Gửi yêu cầu tư vấn
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>MediJapan</span>
+                    </div>
+                    <p>Kết nối bệnh nhân Việt Nam với hệ thống y tế Nhật Bản chất lượng cao.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Dịch vụ</h4>
+                    <ul>
+                        <li><a href="#services">Tư vấn y tế</a></li>
+                        <li><a href="#hospitals">Đặt lịch khám</a></li>
+                        <li><a href="#treatments">Điều trị ung thư</a></li>
+                        <li><a href="#services">Hỗ trợ visa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Bệnh viện</h4>
+                    <ul>
+                        <li><a href="#hospitals">Bệnh viện Đại học Tokyo</a></li>
+                        <li><a href="#hospitals">Trung tâm Ung thư Quốc gia</a></li>
+                        <li><a href="#hospitals">Bệnh viện Đại học Kyoto</a></li>
+                        <li><a href="#hospitals">Xem tất cả</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên hệ</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +84 90 123 4567</li>
+                        <li><i class="fas fa-envelope"></i> info@medijapan.vn</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Nguyễn Huệ, Hà Nội</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MediJapan. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
