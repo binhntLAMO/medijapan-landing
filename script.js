@@ -454,4 +454,225 @@ const debouncedScrollHandler = debounce(function() {
     // Scroll-based animations and effects
 }, 10);
 
-window.addEventListener('scroll', debouncedScrollHandler); 
+window.addEventListener('scroll', debouncedScrollHandler);
+
+// Search functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.querySelector('.search-input');
+    const searchBtn = document.querySelector('.search-btn');
+    
+    if (searchInput && searchBtn) {
+        // Search data - các từ khóa tìm kiếm
+        const searchData = {
+            'ung thư': ['#treatments', 'Điều trị ung thư', 'Phương pháp điều trị'],
+            'bệnh viện': ['#hospitals', 'Bệnh viện đối tác', 'Bệnh viện Đại học Tokyo'],
+            'dịch vụ': ['#services', 'Dịch vụ toàn diện', 'Tư vấn y tế'],
+            'nhật bản': ['#about', 'Về MediJapan', 'Công nghệ y tế Nhật Bản'],
+            'tư vấn': ['#contact', 'Liên hệ tư vấn', 'Tư vấn miễn phí'],
+            'visa': ['#services', 'Hỗ trợ visa', 'Visa y tế'],
+            'xạ trị': ['#treatments', 'Xạ trị tiên tiến', 'IMRT'],
+            'miễn dịch': ['#treatments', 'Liệu pháp miễn dịch', 'Checkpoint inhibitors'],
+            'phẫu thuật': ['#treatments', 'Phẫu thuật robot', 'da Vinci'],
+            'tokyo': ['#hospitals', 'Bệnh viện Đại học Tokyo', 'Tokyo, Nhật Bản'],
+            'kyoto': ['#hospitals', 'Bệnh viện Đại học Kyoto', 'Kyoto, Nhật Bản']
+        };
+        
+        // Search function
+        function performSearch(query) {
+            if (!query.trim()) return;
+            
+            const lowerQuery = query.toLowerCase();
+            let foundResults = [];
+            
+            // Tìm kiếm trong searchData
+            for (const [keyword, results] of Object.entries(searchData)) {
+                if (keyword.includes(lowerQuery) || lowerQuery.includes(keyword)) {
+                    foundResults.push(...results);
+                }
+            }
+            
+            // Tìm kiếm trong nội dung trang
+            const pageContent = document.body.textContent.toLowerCase();
+            if (pageContent.includes(lowerQuery)) {
+                foundResults.push('Nội dung liên quan được tìm thấy');
+            }
+            
+            // Hiển thị kết quả
+            if (foundResults.length > 0) {
+                showSearchResults(foundResults, query);
+            } else {
+                showNotification('Không tìm thấy kết quả cho "' + query + '"', 'info');
+            }
+        }
+        
+        // Debounced search
+        const debouncedSearch = debounce(performSearch, 500);
+        
+        // Search input event
+        searchInput.addEventListener('input', function() {
+            const query = this.value.trim();
+            if (query.length >= 2) {
+                debouncedSearch(query);
+            }
+        });
+        
+        // Search button click
+        searchBtn.addEventListener('click', function() {
+            const query = searchInput.value.trim();
+            if (query) {
+                performSearch(query);
+            }
+        });
+        
+        // Search on Enter key
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.trim();
+                if (query) {
+                    performSearch(query);
+                }
+            }
+        });
+    }
+});
+
+// Show search results
+function showSearchResults(results, query) {
+    // Remove existing search results
+    const existingResults = document.querySelector('.search-results');
+    if (existingResults) {
+        existingResults.remove();
+    }
+    
+    // Create search results container
+    const searchResults = document.createElement('div');
+    searchResults.className = 'search-results';
+    searchResults.innerHTML = `
+        <div class="search-results-header">
+            <h4>Kết quả tìm kiếm cho "${query}"</h4>
+            <button class="search-results-close" onclick="this.parentElement.parentElement.remove()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="search-results-content">
+            ${results.slice(0, 5).map(result => `
+                <div class="search-result-item" onclick="handleSearchResult('${result}')">
+                    <i class="fas fa-search"></i>
+                    <span>${result}</span>
+                </div>
+            `).join('')}
+        </div>
+    `;
+    
+    // Add styles
+    searchResults.style.cssText = `
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        margin-top: 0.5rem;
+        max-height: 300px;
+        overflow-y: auto;
+    `;
+    
+    // Add to search container
+    const searchContainer = document.querySelector('.search-container');
+    searchContainer.style.position = 'relative';
+    searchContainer.appendChild(searchResults);
+    
+    // Auto remove after 10 seconds
+    setTimeout(() => {
+        if (searchResults.parentElement) {
+            searchResults.remove();
+        }
+    }, 10000);
+}
+
+// Handle search result click
+function handleSearchResult(result) {
+    // Remove search results
+    const searchResults = document.querySelector('.search-results');
+    if (searchResults) {
+        searchResults.remove();
+    }
+    
+    // Clear search input
+    const searchInput = document.querySelector('.search-input');
+    if (searchInput) {
+        searchInput.value = '';
+    }
+    
+    // Navigate to section if it's a section link
+    if (result.startsWith('#')) {
+        scrollToSection(result.substring(1));
+        showNotification('Đang chuyển đến ' + result, 'info');
+    } else {
+        showNotification('Kết quả: ' + result, 'info');
+    }
+}
+
+// Add CSS for search results
+const searchResultsStyles = document.createElement('style');
+searchResultsStyles.textContent = `
+    .search-results-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .search-results-header h4 {
+        margin: 0;
+        color: #374151;
+        font-size: 0.9rem;
+    }
+    
+    .search-results-close {
+        background: none;
+        border: none;
+        color: #6b7280;
+        cursor: pointer;
+        padding: 0.25rem;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+    
+    .search-results-close:hover {
+        color: #ef4444;
+        background: rgba(239, 68, 68, 0.1);
+    }
+    
+    .search-results-content {
+        padding: 0.5rem 0;
+    }
+    
+    .search-result-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .search-result-item:hover {
+        background-color: #f3f4f6;
+    }
+    
+    .search-result-item i {
+        color: #6b7280;
+        font-size: 0.8rem;
+    }
+    
+    .search-result-item span {
+        color: #374151;
+        font-size: 0.9rem;
+    }
+`;
+document.head.appendChild(searchResultsStyles); 
