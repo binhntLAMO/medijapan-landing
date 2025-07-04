@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chỉ mục Website - MediJapan | Dịch vụ Y tế Nhật Bản</title>
+    <meta name="description" content="Chỉ mục toàn bộ nội dung website MediJapan - Dịch vụ đưa bệnh nhân Việt Nam sang Nhật Bản điều trị tế bào gốc, làm đẹp và ung thư">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .sitemap-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .sitemap-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .sitemap-header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .sitemap-header p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .sitemap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .sitemap-section {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .sitemap-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .sitemap-section h2 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .sitemap-section h2 i {
+            color: #3498db;
+            font-size: 1.8rem;
+        }
+        
+        .sitemap-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sitemap-links li {
+            margin-bottom: 12px;
+        }
+        
+        .sitemap-links a {
+            color: #34495e;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0;
+            transition: color 0.3s ease;
+            border-radius: 5px;
+        }
+        
+        .sitemap-links a:hover {
+            color: #3498db;
+            background: #f8f9fa;
+            padding-left: 10px;
+        }
+        
+        .sitemap-links a i {
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+        
+        .sitemap-links a:hover i {
+            color: #3498db;
+        }
+        
+        .sitemap-stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .sitemap-stats h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-item h3 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        
+        .sitemap-search {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .sitemap-search h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .search-box {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+        
+        .search-box button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .search-box button:hover {
+            background: #2980b9;
+        }
+        
+        .back-to-home {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .back-to-home a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+        
+        .back-to-home a:hover {
+            background: #2980b9;
+        }
+        
+        @media (max-width: 768px) {
+            .sitemap-header h1 {
+                font-size: 2rem;
+            }
+            
+            .sitemap-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>MediJapan</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Trang chủ</a></li>
+                    <li><a href="index.html#services">Dịch vụ</a></li>
+                    <li><a href="index.html#hospitals">Bệnh viện</a></li>
+                    <li><a href="index.html#treatments">Điều trị</a></li>
+                    <li><a href="index.html#about">Về chúng tôi</a></li>
+                    <li><a href="index.html#contact">Liên hệ</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sitemap Content -->
+    <div class="sitemap-container">
+        <div class="sitemap-header">
+            <h1>Chỉ mục Website</h1>
+            <p>Khám phá toàn bộ nội dung và dịch vụ của MediJapan - Dịch vụ Y tế Nhật Bản hàng đầu</p>
+        </div>
+
+        <!-- Search Section -->
+        <div class="sitemap-search">
+            <h3>Tìm kiếm nhanh</h3>
+            <div class="search-box">
+                <input type="text" id="sitemapSearch" placeholder="Tìm kiếm dịch vụ, bệnh viện, phương pháp điều trị...">
+                <button onclick="searchSitemap()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="sitemap-stats">
+            <h2>Thống kê Website</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>6</h3>
+                    <p>Phần chính</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4</h3>
+                    <p>Bệnh viện đối tác</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4</h3>
+                    <p>Phương pháp điều trị</p>
+                </div>
+                <div class="stat-item">
+                    <h3>6</h3>
+                    <p>Dịch vụ chính</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sitemap Grid -->
+        <div class="sitemap-grid">
+            <!-- Trang chủ -->
+            <div class="sitemap-section">
+                <h2><i class="fas fa-home"></i>Trang chủ</h2>
+                <ul class="sitemap-links">
+                    <li><a href="index.html#home"><i class="fas fa-chevron-right"></i>Giới thiệu tổng quan</a></li>
+                    <li><a href="index.html#home"><i class="fas fa-chevron-right"></i>Thống kê thành công</a></li>
+                    <li><a href="index.html#home"><i class="fas fa-chevron-right"></i>Call-to-action chính</a></li>
+                </ul>
+            </div>
+
+            <!-- Dịch vụ -->
+            <div class="sitemap-section">
+                <h2><i class="fas fa-cogs"></i>Dịch vụ</h2>
+                <ul class="sitemap-links">
+                    <li><a href="index.html#services"><i class="fas fa-chevron-right"></i>Tư vấn Y tế</a></li>
+                    <li><a href="index.html#services"><i class="fas fa-chevron-right"></i>Hỗ trợ Visa & Du lịch</a></li>
+                    <li><a href="index.html#services"><i class="fas fa-chevron-right"></i>Đặt lịch Khám</a></li>
+                    <li><a href="index.html#services"><i class="fas fa-chevron-right"></i>Phiên dịch Y tế</a></li>
+                    <li><a href="index.html#services"><i class="fas fa-chevron-right"></i>Chăm sóc Hậu điều trị</a></li>
+                    <li><a href="index.html#services"><i class="fas fa-chevron-right"></i>Hỗ trợ 24/7</a></li>
+                </ul>
+            </div>
+
+            <!-- Bệnh viện -->
+            <div class="sitemap-section">
+                <h2><i class="fas fa-hospital"></i>Bệnh viện Đối tác</h2>
+                <ul class="sitemap-links">
+                    <li><a href="index.html#hospitals" data-hospital="tokyo"><i class="fas fa-chevron-right"></i>Bệnh viện Đại học Tokyo</a></li>
+                    <li><a href="index.html#hospitals" data-hospital="osaka"><i class="fas fa-chevron-right"></i>Trung tâm Y tế Thẩm mỹ Osaka</a></li>
+                    <li><a href="index.html#hospitals" data-hospital="kyoto"><i class="fas fa-chevron-right"></i>Bệnh viện Đại học Kyoto</a></li>
+                    <li><a href="index.html#hospitals" data-hospital="kobe"><i class="fas fa-chevron-right"></i>Viện Nghiên cứu Tế bào gốc Kobe</a></li>
+                </ul>
+            </div>
+
+            <!-- Phương pháp điều trị -->
+            <div class="sitemap-section">
+                <h2><i class="fas fa-stethoscope"></i>Phương pháp Điều trị</h2>
+                <ul class="sitemap-links">
+                    <li><a href="index.html#treatments"><i class="fas fa-chevron-right"></i>Liệu pháp Tế bào gốc</a></li>
+                    <li><a href="index.html#treatments"><i class="fas fa-chevron-right"></i>Thẩm mỹ & Làm đẹp</a></li>
+                    <li><a href="index.html#treatments"><i class="fas fa-chevron-right"></i>Xạ trị Tiên tiến</a></li>
+                    <li><a href="index.html#treatments"><i class="fas fa-chevron-right"></i>Liệu pháp Miễn dịch</a></li>
+                </ul>
+            </div>
+
+            <!-- Về chúng tôi -->
+            <div class="sitemap-section">
+                <h2><i class="fas fa-info-circle"></i>Về MediJapan</h2>
+                <ul class="sitemap-links">
+                    <li><a href="index.html#about"><i class="fas fa-chevron-right"></i>Giới thiệu công ty</a></li>
+                    <li><a href="index.html#about"><i class="fas fa-chevron-right"></i>Đội ngũ chuyên gia</a></li>
+                    <li><a href="index.html#about"><i class="fas fa-chevron-right"></i>Thống kê thành tựu</a></li>
+                    <li><a href="index.html#about"><i class="fas fa-chevron-right"></i>Cam kết chất lượng</a></li>
+                </ul>
+            </div>
+
+            <!-- Liên hệ -->
+            <div class="sitemap-section">
+                <h2><i class="fas fa-phone"></i>Liên hệ & Tư vấn</h2>
+                <ul class="sitemap-links">
+                    <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i>Form tư vấn</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i>Thông tin liên hệ</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i>Hotline: +84 90 123 4567</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i>Email: info@medijapan.vn</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i>Địa chỉ văn phòng</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="back-to-home">
+            <a href="index.html">
+                <i class="fas fa-arrow-left"></i>
+                Quay lại Trang chủ
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>MediJapan</span>
+                    </div>
+                    <p>Kết nối bệnh nhân Việt Nam với hệ thống y tế Nhật Bản chất lượng cao.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Dịch vụ</h4>
+                    <ul>
+                        <li><a href="index.html#services">Tư vấn y tế</a></li>
+                        <li><a href="index.html#hospitals">Đặt lịch khám</a></li>
+                        <li><a href="index.html#treatments">Điều trị ung thư</a></li>
+                        <li><a href="index.html#services">Hỗ trợ visa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Bệnh viện</h4>
+                    <ul>
+                        <li><a href="index.html#hospitals">Bệnh viện Đại học Tokyo</a></li>
+                        <li><a href="index.html#hospitals">Trung tâm Y tế Thẩm mỹ Osaka</a></li>
+                        <li><a href="index.html#hospitals">Bệnh viện Đại học Kyoto</a></li>
+                        <li><a href="index.html#hospitals">Viện Nghiên cứu Tế bào gốc Kobe</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên hệ</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +84 90 123 4567</li>
+                        <li><i class="fas fa-envelope"></i> info@medijapan.vn</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Nguyễn Huệ, Hà Nội</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MediJapan. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Search functionality
+        function searchSitemap() {
+            const searchTerm = document.getElementById('sitemapSearch').value.toLowerCase();
+            const links = document.querySelectorAll('.sitemap-links a');
+            
+            links.forEach(link => {
+                const text = link.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    link.style.backgroundColor = '#e3f2fd';
+                    link.style.color = '#1976d2';
+                    link.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    link.style.backgroundColor = '';
+                    link.style.color = '';
+                }
+            });
+        }
+
+        // Enter key search
+        document.getElementById('sitemapSearch').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchSitemap();
+            }
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
