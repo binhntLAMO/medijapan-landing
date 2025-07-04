@@ -18,7 +18,44 @@ document.addEventListener('DOMContentLoaded', function() {
             navToggle.classList.remove('active');
         });
     });
+    
+    // Handle dropdown menu hospital links
+    const hospitalLinks = document.querySelectorAll('.dropdown-menu a[data-hospital]');
+    hospitalLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const hospitalType = this.getAttribute('data-hospital');
+            highlightHospital(hospitalType);
+            scrollToSection('hospitals');
+        });
+    });
 });
+
+// Highlight specific hospital
+function highlightHospital(hospitalType) {
+    // Remove existing highlights
+    const allHospitals = document.querySelectorAll('.hospital-card');
+    allHospitals.forEach(hospital => {
+        hospital.style.transform = 'scale(1)';
+        hospital.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+        hospital.style.border = '1px solid #e5e7eb';
+    });
+    
+    // Find and highlight the specific hospital
+    const targetHospital = document.querySelector(`[data-hospital="${hospitalType}"]`);
+    if (targetHospital) {
+        targetHospital.style.transform = 'scale(1.05)';
+        targetHospital.style.boxShadow = '0 8px 30px rgba(37, 99, 235, 0.3)';
+        targetHospital.style.border = '2px solid #2563eb';
+        
+        // Remove highlight after 3 seconds
+        setTimeout(() => {
+            targetHospital.style.transform = 'scale(1)';
+            targetHospital.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            targetHospital.style.border = '1px solid #e5e7eb';
+        }, 3000);
+    }
+}
 
 // Smooth scrolling function
 function scrollToSection(sectionId) {
